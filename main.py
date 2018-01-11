@@ -52,8 +52,8 @@ class User(db.Model):
         
 @app.before_request
 def require_login():
-    allowed_routes = ['login', 'index', 'signup','list_blogs' ]
-    if request.endpoint not in  allowed_routes and 'username' not in session:
+    allowed_routes = ['login', 'index', 'signup','blog' ]
+    if request.endpoint not in allowed_routes and 'username' not in session:
         return redirect('/login')
 
 @app.route('/', methods=['POST', 'GET'])
@@ -154,9 +154,9 @@ def newpost():
         title_error = ""
         body_error = ""
         if title == "":
-            title_error ="titleerror"
+            title_error ="Title error"
         if body == "":
-            body_error = "bodyerror"
+            body_error = "Body error"
         if title_error or body_error:
             return render_template('/newpost.html', title_error= title_error, body_error= body_error)
         else:

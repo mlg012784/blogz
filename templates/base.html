@@ -16,18 +16,23 @@
             .post-author{
                 font-size: 12px
             }
-
+            nav{
+                text-align: right
+            }
 
         </style>
     </head>
 
 <body>
     <div>
+        <a href= '/'>Home</a>
         <a href= '/blog'>All posts</a>
         <a href = '/newpost'>New post</a>
+        
+        <nav>
         <a href='/logout'>Logout</a>
         <a href='/login'>Login</a>
-        <a href= '/'>Home</a>
+        </nav>  
     </div>
 
     {% with messages= get_flashed_messages(with_categories=True) %}
